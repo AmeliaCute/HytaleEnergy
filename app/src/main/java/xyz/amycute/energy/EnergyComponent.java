@@ -100,6 +100,9 @@ public class EnergyComponent implements Component<EntityStore>, IEnergyStorage
         this.energyStored = Math.max(this.energyStored, amount);
     }
 
+    /**
+     * @return a value between 0.0 and 1.0 (50% = 0.5)
+     */
     public float getFillRatio()
     {
         return (float) energyStored / (float) maxEnergy;
