@@ -3,19 +3,17 @@
  */
 package xyz.amycute;
 
-import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.logger.HytaleLogger;
-import xyz.amycute.Commands.ItemCommand;
-import xyz.amycute.Events.ExampleEvent;
+import xyz.amycute.energy.EnergyModule;
 
 /**
  * Main plugin class.
  */
-public class ExamplePlugin extends JavaPlugin {
+public class HytaleEnergyApi extends JavaPlugin {
 
-    private static ExamplePlugin instance;
+    private static HytaleEnergyApi instance;
     private static final HytaleLogger logger = HytaleLogger.forEnclosingClass();
 
     /**
@@ -25,7 +23,7 @@ public class ExamplePlugin extends JavaPlugin {
      * @param init the plugin initialization object (must not be null)
      * @throws NullPointerException if init is null
      */
-    public ExamplePlugin(JavaPluginInit init)
+    public HytaleEnergyApi(JavaPluginInit init)
     {
         super(init);
         instance = this;
@@ -35,19 +33,19 @@ public class ExamplePlugin extends JavaPlugin {
     @Override
     public void setup()
     {
-        logger.atInfo().log("Plugin enabled! test4444");
-        this.getCommandRegistry().registerCommand(new ItemCommand());
-        this.getEventRegistry().registerGlobal(PlayerReadyEvent.class, ExampleEvent::onPlayerReady);
+        logger.atInfo().log("Plugin enabled!");
+        EnergyModule.init(getEntityStoreRegistry());
     }
 
 
     @Override
-    public void shutdown() {
+    public void shutdown()
+    {
         logger.atInfo().log("Plugin disabled!");
     }
 
 
-    public static ExamplePlugin getInstance() {
+    public static HytaleEnergyApi getInstance() {
         return instance;
     }
 }

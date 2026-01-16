@@ -1,2 +1,2 @@
-rootProject.name = "HytaleServerMod"
+rootProject.name = "HytaleEnergy"
 include("app")

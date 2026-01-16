@@ -1,0 +1,6 @@
+{
+  "Icon": "Icons/ItemsGenerated/Wood_Willow_Trunk.png",
+  "BlockType": {
+    "Parent": "Wood_Banyan_Branch_Corner"
+  }
+}
