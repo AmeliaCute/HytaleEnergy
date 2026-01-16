@@ -30,8 +30,8 @@ repositories {
 }
 
 dependencies {
-    implementation(files("../libs/HytaleServer.jar"))
-    implementation("com.google.guava:guava:33.4.6-jre")
+    compileOnly(files("../libs/HytaleServer.jar"))
+    compileOnly("com.google.guava:guava:33.4.6-jre")
 }
 
 abstract class ProcessManifestTask : DefaultTask() {
